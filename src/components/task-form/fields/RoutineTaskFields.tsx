@@ -1,18 +1,10 @@
 import { Box, Input, Text, Textarea, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { createListCollection, Portal, Select } from "@chakra-ui/react";
+import { Portal, Select } from "@chakra-ui/react";
+import { periodicityOptions } from "../../../data/periodicity";
 
 const NAME_MAX_LENGTH = 255;
 const DESC_MAX_LENGTH = 1024;
-
-const periodicityOptions = createListCollection({
-  items: [
-    { label: "Ежедневно", value: "daily" },
-    { label: "Еженедельно", value: "weekly" },
-    { label: "Ежемесячно", value: "monthly" },
-    { label: "Ежегодно", value: "yearly" },
-  ],
-});
 
 const RoutineTaskFields = () => {
   const [name, setName] = useState("");

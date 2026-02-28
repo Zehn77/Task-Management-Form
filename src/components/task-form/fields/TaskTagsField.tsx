@@ -2,20 +2,8 @@ import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LuChevronDown, LuX } from "react-icons/lu";
 import useClickOutside from "../../../hooks/useClickOutside";
-
-const TAGS = [
-  { label: "Срочно", bg: "#E53E3E" },
-  { label: "Блокер", bg: "#744210" },
-  { label: "Очень важно", bg: "#DD6B20" },
-  { label: "Баг", bg: "#C53030" },
-  { label: "Улучшение", bg: "#276749" },
-  { label: "Ревью", bg: "#2B6CB0" },
-  { label: "Документация", bg: "#553C9A" },
-  { label: "Релиз", bg: "#285E61" },
-  { label: "Рефакторинг", bg: "#702459" },
-];
-
-type Tag = (typeof TAGS)[number];
+import { TAGS } from "../../../data/tags";
+import type { Tag } from "../../../data/tags";
 
 const TagPill = ({
   tag,
