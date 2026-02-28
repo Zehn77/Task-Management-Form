@@ -2,15 +2,7 @@ import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LuChevronDown } from "react-icons/lu";
 import useClickOutside from "../../../hooks/useClickOutside";
-
-const TOPICS = [
-  "Разработка",
-  "Дизайн",
-  "Тестирование",
-  "Аналитика",
-  "Маркетинг",
-  "Поддержка",
-];
+import { TOPICS } from "../../../data/topics";
 
 const TaskTopicField = () => {
   const [open, setOpen] = useState(false);
