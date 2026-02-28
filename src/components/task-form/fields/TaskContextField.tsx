@@ -1,10 +1,18 @@
 import { Box, Text, Textarea, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import type { TaskFormValues } from "../types/formTypes";
 
 const MAX_LENGTH = 4096;
 
 const TaskContextField = () => {
-  const [value, setValue] = useState("");
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext<TaskFormValues>();
+
+  const value = watch("context") ?? "";
+  const hasError = !!errors.context;
 
   return (
     <VStack align="stretch" gap={1}>
@@ -18,19 +26,20 @@ const TaskContextField = () => {
         position="relative"
         borderRadius="3xl"
         borderWidth="2px"
-        borderColor="gray.300"
-        _hover={{ borderColor: "purple.400" }}
-        _focusWithin={{ borderColor: "purple.500" }}
+        borderColor={hasError ? "red.400" : "gray.300"}
+        _hover={{ borderColor: hasError ? "red.400" : "purple.400" }}
+        _focusWithin={{ borderColor: hasError ? "red.400" : "purple.500" }}
         transition="border-color 0.2s"
       >
         <Textarea
           placeholder="Выполнить какую-нибудь задачу"
-          value={value}
-          onChange={(e) => {
-            if (e.target.value.length <= MAX_LENGTH) {
-              setValue(e.target.value);
-            }
-          }}
+          {...register("context", {
+            required: "Заполните контекст задачи",
+            maxLength: {
+              value: MAX_LENGTH,
+              message: `Максимум ${MAX_LENGTH} символов`,
+            },
+          })}
           minH="120px"
           borderRadius="3xl"
           border="none"
@@ -44,11 +53,16 @@ const TaskContextField = () => {
           bottom={5}
           right={5}
           fontSize="xs"
-          color="fg.subtle"
+          color={hasError ? "red.400" : "fg.subtle"}
         >
           {value.length}/{MAX_LENGTH}
         </Text>
       </Box>
+      {hasError && (
+        <Text fontSize="xs" color="red.500" ml="6">
+          {errors.context?.message}
+        </Text>
+      )}
     </VStack>
   );
 };
