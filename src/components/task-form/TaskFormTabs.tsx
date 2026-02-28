@@ -32,6 +32,7 @@ const TaskFormTabs = ({ tabs }: TaskFormTabsProps) => {
         width="full"
         display="flex"
         position="relative"
+        mb="1"
       >
         {tabs.map((tab, index) => (
           <Tabs.Trigger

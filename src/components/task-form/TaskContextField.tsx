@@ -25,14 +25,14 @@ const TaskContextField = () => {
           }}
           minH="120px"
           borderRadius="3xl"
-          borderColor="purple.400"
+          borderColor="gray.300"
           borderWidth="2px"
           _focus={{
             borderColor: "purple.500",
             outline: "none",
           }}
           _hover={{
-            borderColor: "purple.500",
+            borderColor: "purple.400",
           }}
           resize="none"
           py={3}

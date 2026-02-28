@@ -1,7 +1,33 @@
+import { VStack } from "@chakra-ui/react";
+import { useState } from "react";
 import TaskContextField from "./TaskContextField";
+import TaskOptions from "./TaskOptions";
+import RoutineTaskFields from "./RoutineTaskFields";
+import TaskAssigneeField from "./TaskAssigneeField";
+import TaskDeadlineField from "./TaskDeadlineField";
 
 const TaskCreationContent = () => {
-  return <TaskContextField />;
+  const [isRoutine, setIsRoutine] = useState(false);
+  const [isTeam, setIsTeam] = useState(false);
+
+  return (
+    <VStack align="stretch">
+      <TaskContextField />
+
+      <TaskOptions
+        isRoutine={isRoutine}
+        onRoutineChange={setIsRoutine}
+        isTeam={isTeam}
+        onTeamChange={setIsTeam}
+      />
+
+      {isRoutine && <RoutineTaskFields />}
+
+      <TaskAssigneeField key={isTeam ? "team" : "user"} isTeam={isTeam} />
+
+      <TaskDeadlineField />
+    </VStack>
+  );
 };
 
 export default TaskCreationContent;
