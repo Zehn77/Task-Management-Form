@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { TaskFormHeader } from "./TaskFormHeader";
-import TaskFormTabs from "./TaskFormTabs";
+import { TaskFormHeader } from "./layout/TaskFormHeader";
+import TaskFormTabs from "./layout/TaskFormTabs";
 import TaskCreationContent from "./TaskCreationContent";
 import ReminderCreationContent from "./ReminderCreationContent";
 

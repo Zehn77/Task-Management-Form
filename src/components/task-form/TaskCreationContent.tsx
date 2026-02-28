@@ -1,13 +1,13 @@
 import { VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import TaskContextField from "./TaskContextField";
-import TaskOptions from "./TaskOptions";
-import RoutineTaskFields from "./RoutineTaskFields";
-import TaskAssigneeField from "./TaskAssigneeField";
-import TaskDeadlineField from "./TaskDeadlineField";
-import TaskTopicField from "./TaskTopicField";
-import TaskTagsField from "./TaskTagsField";
-import TaskFilesField from "./TaskFilesField";
+import TaskContextField from "./fields/TaskContextField";
+import TaskOptions from "./fields/TaskOptions";
+import RoutineTaskFields from "./fields/RoutineTaskFields";
+import TaskAssigneeField from "./fields/TaskAssigneeField";
+import TaskDeadlineField from "./fields/TaskDeadlineField";
+import TaskTopicField from "./fields/TaskTopicField";
+import TaskTagsField from "./fields/TaskTagsField";
+import TaskFilesField from "./fields/TaskFilesField";
 
 const TaskCreationContent = () => {
   const [isRoutine, setIsRoutine] = useState(false);

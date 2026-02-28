@@ -129,7 +129,15 @@ const RoutineTaskFields = () => {
           <Text fontSize="sm" fontWeight="medium" color="gray.500" ml={3}>
             Описание
           </Text>
-          <Box position="relative">
+          <Box
+            position="relative"
+            borderRadius="3xl"
+            borderWidth="2px"
+            borderColor="gray.300"
+            _hover={{ borderColor: "purple.400" }}
+            _focusWithin={{ borderColor: "purple.500" }}
+            transition="border-color 0.2s"
+          >
             <Textarea
               placeholder="Описание рутинной задачи"
               value={description}
@@ -140,6 +148,8 @@ const RoutineTaskFields = () => {
               }}
               minH="120px"
               borderRadius="3xl"
+              border="none"
+              _focus={{ outline: "none", boxShadow: "none" }}
               resize="none"
               pb={8}
             />

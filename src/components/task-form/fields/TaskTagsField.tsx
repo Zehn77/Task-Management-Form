@@ -1,7 +1,7 @@
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LuChevronDown, LuX } from "react-icons/lu";
-import useClickOutside from "../../hooks/useClickOutside";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 const TAGS = [
   { label: "Срочно", bg: "#E53E3E" },

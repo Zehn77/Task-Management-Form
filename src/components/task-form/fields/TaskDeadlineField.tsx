@@ -1,6 +1,6 @@
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import useClickOutside from "../../hooks/useClickOutside";
+import useClickOutside from "../../../hooks/useClickOutside";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { LuCalendarDays, LuClock } from "react-icons/lu";
