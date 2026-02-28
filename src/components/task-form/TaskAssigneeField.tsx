@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LuX } from "react-icons/lu";
+import useClickOutside from "../../hooks/useClickOutside";
 
 const USERS = [
   { id: 1, name: "Алексей Иванов", role: "Разработчик" },
@@ -40,6 +41,8 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
   const [focused, setFocused] = useState(false);
   const [selected, setSelected] = useState<User[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useClickOutside(containerRef, () => setFocused(false));
 
   const list = isTeam ? TEAMS : USERS;
 
@@ -62,12 +65,9 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
   };
 
   return (
-    <VStack align="stretch" gap={1} position="relative">
+    <VStack align="stretch" gap={1} position="relative" ref={containerRef}>
       <Text fontSize="sm" fontWeight="medium" color="gray.500" ml="6">
-        {isTeam ? "Команда задачи" : "Исполнители задачи"}{" "}
-        <Text as="span" color="purple.500">
-          ★
-        </Text>
+        {isTeam ? "Команда задачи" : "Исполнители задачи"}
       </Text>
 
       {/* Input box */}

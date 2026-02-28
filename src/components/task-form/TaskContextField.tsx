@@ -14,7 +14,15 @@ const TaskContextField = () => {
           ★
         </Text>
       </Text>
-      <Box position="relative">
+      <Box
+        position="relative"
+        borderRadius="3xl"
+        borderWidth="2px"
+        borderColor="gray.300"
+        _hover={{ borderColor: "purple.400" }}
+        _focusWithin={{ borderColor: "purple.500" }}
+        transition="border-color 0.2s"
+      >
         <Textarea
           placeholder="Выполнить какую-нибудь задачу"
           value={value}
@@ -25,15 +33,8 @@ const TaskContextField = () => {
           }}
           minH="120px"
           borderRadius="3xl"
-          borderColor="gray.300"
-          borderWidth="2px"
-          _focus={{
-            borderColor: "purple.500",
-            outline: "none",
-          }}
-          _hover={{
-            borderColor: "purple.400",
-          }}
+          border="none"
+          _focus={{ outline: "none", boxShadow: "none" }}
           resize="none"
           py={3}
           px={4}

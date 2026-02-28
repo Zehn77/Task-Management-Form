@@ -1,5 +1,6 @@
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
+import useClickOutside from "../../hooks/useClickOutside";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 import { LuCalendarDays, LuClock } from "react-icons/lu";
@@ -79,11 +80,16 @@ const TaskDeadlineField = () => {
   const [minute, setMinute] = useState("00");
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [timeOpen, setTimeOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  useClickOutside(containerRef, () => {
+    setCalendarOpen(false);
+    setTimeOpen(false);
+  });
 
   const timeDisplay = `${hour}:${minute}`;
 
   return (
-    <VStack align="stretch" gap={1} position="relative">
+    <VStack align="stretch" gap={1} position="relative" ref={containerRef}>
       <Text fontSize="sm" fontWeight="medium" color="gray.500" ml="6">
         Срок выполнения
       </Text>
