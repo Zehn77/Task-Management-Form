@@ -29,7 +29,6 @@ const RoutineTaskFields = () => {
       p={5}
     >
       <VStack align="stretch" gap={4}>
-        {/* Routine name */}
         <VStack align="stretch" gap={1}>
           <Text fontSize="sm" fontWeight="medium" color="gray.500" ml={3}>
             Название рутинной задачи{" "}
@@ -78,7 +77,6 @@ const RoutineTaskFields = () => {
           )}
         </VStack>
 
-        {/* Periodicity */}
         <VStack align="stretch" gap={1}>
           <Text fontSize="sm" fontWeight="medium" color="gray.500" ml={3}>
             Периодичность{" "}
@@ -154,7 +152,6 @@ const RoutineTaskFields = () => {
           )}
         </VStack>
 
-        {/* Description — optional, local state */}
         <VStack align="stretch" gap={1}>
           <Text fontSize="sm" fontWeight="medium" color="gray.500" ml={3}>
             Описание
