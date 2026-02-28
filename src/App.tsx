@@ -5,7 +5,14 @@ import { TaskForm } from "./components/task-form";
 function App() {
   return (
     <Box minH="100vh" bg="bg.canvas" transition="background 0.2s">
-      <Box as="nav" position="sticky" top="0" zIndex="sticky" bg="bg.canvas" borderBottomWidth="1px">
+      <Box
+        as="nav"
+        position="sticky"
+        top="0"
+        zIndex="sticky"
+        bg="bg.canvas"
+        borderBottomWidth="1px"
+      >
         <Flex justify="flex-end" p="4">
           <ColorModeButton />
         </Flex>

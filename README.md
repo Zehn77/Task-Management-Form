@@ -37,51 +37,51 @@ pnpm preview
 
 ## Available Scripts
 
-| Script | Description |
-|---|---|
-| `pnpm dev` | Start development server with HMR |
-| `pnpm build` | Type-check and build for production |
-| `pnpm preview` | Preview the production build locally |
-| `pnpm lint` | Run ESLint |
-| `pnpm check-types` | Run TypeScript type checking without emitting |
-| `pnpm format:check` | Check code formatting with Prettier |
-| `pnpm format:fix` | Auto-fix formatting with Prettier |
+| Script              | Description                                   |
+| ------------------- | --------------------------------------------- |
+| `pnpm dev`          | Start development server with HMR             |
+| `pnpm build`        | Type-check and build for production           |
+| `pnpm preview`      | Preview the production build locally          |
+| `pnpm lint`         | Run ESLint                                    |
+| `pnpm check-types`  | Run TypeScript type checking without emitting |
+| `pnpm format:check` | Check code formatting with Prettier           |
+| `pnpm format:fix`   | Auto-fix formatting with Prettier             |
 
 ## Tech Stack
 
 ### Core
 
-| Package | Version | Purpose |
-|---|---|---|
-| [React](https://react.dev) | ^19.2.0 | UI library |
-| [TypeScript](https://www.typescriptlang.org) | ~5.9.3 | Type safety |
-| [Vite](https://vite.dev) | ^7.3.1 | Build tool and dev server |
+| Package                                      | Version | Purpose                   |
+| -------------------------------------------- | ------- | ------------------------- |
+| [React](https://react.dev)                   | ^19.2.0 | UI library                |
+| [TypeScript](https://www.typescriptlang.org) | ~5.9.3  | Type safety               |
+| [Vite](https://vite.dev)                     | ^7.3.1  | Build tool and dev server |
 
 ### UI & Styling
 
-| Package | Version | Purpose |
-|---|---|---|
-| [Chakra UI](https://chakra-ui.com) | ^3.33.0 | Component library |
-| [@emotion/react](https://emotion.sh) | ^11.14.0 | CSS-in-JS (Chakra UI peer dep) |
-| [next-themes](https://github.com/pacocoursey/next-themes) | ^0.4.6 | Dark/light mode |
-| [react-icons](https://react-icons.github.io/react-icons) | ^5.5.0 | Icon library |
-| [react-day-picker](https://daypicker.dev) | ^9.14.0 | Date picker |
+| Package                                                   | Version  | Purpose                        |
+| --------------------------------------------------------- | -------- | ------------------------------ |
+| [Chakra UI](https://chakra-ui.com)                        | ^3.33.0  | Component library              |
+| [@emotion/react](https://emotion.sh)                      | ^11.14.0 | CSS-in-JS (Chakra UI peer dep) |
+| [next-themes](https://github.com/pacocoursey/next-themes) | ^0.4.6   | Dark/light mode                |
+| [react-icons](https://react-icons.github.io/react-icons)  | ^5.5.0   | Icon library                   |
+| [react-day-picker](https://daypicker.dev)                 | ^9.14.0  | Date picker                    |
 
 ### Form & Data
 
-| Package | Version | Purpose |
-|---|---|---|
-| [React Hook Form](https://react-hook-form.com) | ^7.71.2 | Form state management and validation |
-| [TanStack Query](https://tanstack.com/query) | ^5.90.21 | Async state management and data fetching |
+| Package                                        | Version  | Purpose                                  |
+| ---------------------------------------------- | -------- | ---------------------------------------- |
+| [React Hook Form](https://react-hook-form.com) | ^7.71.2  | Form state management and validation     |
+| [TanStack Query](https://tanstack.com/query)   | ^5.90.21 | Async state management and data fetching |
 
 ### Dev Tools
 
-| Package | Purpose |
-|---|---|
-| [ESLint](https://eslint.org) + [typescript-eslint](https://typescript-eslint.io) | Linting |
-| [Prettier](https://prettier.io) | Code formatting |
-| [Husky](https://typicode.github.io/husky) | Git pre-commit hooks |
-| [vite-tsconfig-paths](https://github.com/aleclarson/vite-tsconfig-paths) | Path alias support (`@/`) |
+| Package                                                                          | Purpose                   |
+| -------------------------------------------------------------------------------- | ------------------------- |
+| [ESLint](https://eslint.org) + [typescript-eslint](https://typescript-eslint.io) | Linting                   |
+| [Prettier](https://prettier.io)                                                  | Code formatting           |
+| [Husky](https://typicode.github.io/husky)                                        | Git pre-commit hooks      |
+| [vite-tsconfig-paths](https://github.com/aleclarson/vite-tsconfig-paths)         | Path alias support (`@/`) |
 
 ## Project Structure
 
