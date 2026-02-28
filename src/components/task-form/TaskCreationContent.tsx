@@ -1,6 +1,7 @@
 import { Button, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { toaster } from "@/components/ui/toaster-instance";
 import TaskContextField from "./fields/TaskContextField";
 import TaskOptions from "./fields/TaskOptions";
 import RoutineTaskFields from "./fields/RoutineTaskFields";
@@ -22,6 +23,10 @@ const TaskCreationContent = () => {
 
   const onSubmit = methods.handleSubmit((data) => {
     console.log("Form submitted:", data);
+    toaster.create({
+      title: "Задача успешно создана",
+      type: "success",
+    });
   });
 
   return (

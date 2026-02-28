@@ -28,7 +28,10 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
   useClickOutside(containerRef, () => setFocused(false));
 
   const debouncedSearch = useDebounce(search, 300);
-  const { data: filtered = [], isFetching } = useSearchAssignees(debouncedSearch, isTeam);
+  const { data: filtered = [], isFetching } = useSearchAssignees(
+    debouncedSearch,
+    isTeam,
+  );
 
   const isSelected = (id: number) => !!selected.find((s) => s.id === id);
 

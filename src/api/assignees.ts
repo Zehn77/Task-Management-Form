@@ -13,7 +13,5 @@ export const fetchAssignees = async (
   await simulateDelay();
 
   const list = isTeam ? TEAMS : USERS;
-  return list.filter((u) =>
-    u.name.toLowerCase().includes(query.toLowerCase()),
-  );
+  return list.filter((u) => u.name.toLowerCase().includes(query.toLowerCase()));
 };
