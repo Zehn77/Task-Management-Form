@@ -4,13 +4,15 @@ import {
   Icon,
   Image,
   Input,
+  Spinner,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { LuCheck, LuX } from "react-icons/lu";
 import useClickOutside from "../../../hooks/useClickOutside";
-import { USERS, TEAMS } from "../../../data/users";
+import useDebounce from "../../../hooks/useDebounce";
+import useSearchAssignees from "../../../hooks/useSearchAssignees";
 import type { User } from "../../../data/users";
 
 interface TaskAssigneeFieldProps {
@@ -25,11 +27,8 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useClickOutside(containerRef, () => setFocused(false));
 
-  const list = isTeam ? TEAMS : USERS;
-
-  const filtered = list.filter((u) =>
-    u.name.toLowerCase().includes(search.toLowerCase()),
-  );
+  const debouncedSearch = useDebounce(search, 300);
+  const { data: filtered = [], isFetching } = useSearchAssignees(debouncedSearch, isTeam);
 
   const isSelected = (id: number) => !!selected.find((s) => s.id === id);
 
@@ -39,13 +38,16 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
         ? prev.filter((u) => u.id !== user.id)
         : [...prev, user],
     );
+    if (!isSelected(user.id)) {
+      setSearch("");
+    }
   };
 
   const remove = (id: number) => {
     setSelected((prev) => prev.filter((u) => u.id !== id));
   };
 
-  const showDropdown = focused && filtered.length > 0;
+  const showDropdown = focused;
 
   return (
     <VStack align="stretch" gap={1} position="relative" ref={containerRef}>
@@ -53,7 +55,6 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
         {isTeam ? "Команда задачи" : "Исполнители задачи"}
       </Text>
 
-      {/* Input trigger */}
       <Box
         borderRadius="3xl"
         borderColor={focused ? "purple.500" : "gray.300"}
@@ -132,7 +133,6 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
         />
       </Box>
 
-      {/* Dropdown */}
       {showDropdown && (
         <Box
           position="absolute"
@@ -148,6 +148,11 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
           boxShadow="lg"
           p={2}
         >
+          {isFetching && (
+            <HStack justify="center" py={2}>
+              <Spinner size="sm" color="purple.500" />
+            </HStack>
+          )}
           <VStack align="stretch" gap={2} maxH="260px" overflowY="auto">
             {filtered.map((user) => {
               const checked = isSelected(user.id);
@@ -172,7 +177,6 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
                   }}
                   gap={3}
                 >
-                  {/* Checkbox */}
                   <Box
                     w="20px"
                     h="20px"
@@ -193,7 +197,6 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
                     )}
                   </Box>
 
-                  {/* Avatar */}
                   <Image
                     src={user.avatar}
                     w="36px"
@@ -203,7 +206,6 @@ const TaskAssigneeField = ({ isTeam }: TaskAssigneeFieldProps) => {
                     flexShrink={0}
                   />
 
-                  {/* Name */}
                   <Text
                     fontSize="sm"
                     fontWeight={checked ? "semibold" : "medium"}
