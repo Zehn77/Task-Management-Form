@@ -1,5 +1,8 @@
 import { Box } from "@chakra-ui/react";
 import { TaskFormHeader } from "./TaskFormHeader";
+import TaskFormTabs from "./TaskFormTabs";
+import TaskCreationContent from "./TaskCreationContent";
+import ReminderCreationContent from "./ReminderCreationContent";
 
 export const TaskForm = () => {
   return (
@@ -13,6 +16,19 @@ export const TaskForm = () => {
       borderWidth="1px"
     >
       <TaskFormHeader title="Создание задачи" />
+
+      <TaskFormTabs
+        tabs={[
+          {
+            label: "Создание задачи",
+            content: <TaskCreationContent />,
+          },
+          {
+            label: "Создание напоминания",
+            content: <ReminderCreationContent />,
+          },
+        ]}
+      />
     </Box>
   );
 };
